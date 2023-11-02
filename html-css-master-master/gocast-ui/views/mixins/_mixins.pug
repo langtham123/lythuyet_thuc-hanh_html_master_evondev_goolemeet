@@ -1,0 +1,127 @@
+mixin menuItem(text, icon = '', href = "#")
+  li.menu-item
+    a.menu-link(href= href)
+      span.menu-icon
+        if icon
+          case icon
+            when 'icon-home'
+              include ../icons/_icon-home
+            when 'icon-chart'
+              include ../icons/_icon-chart
+            when 'icon-cube'
+              include ../icons/_icon-cube
+            when 'icon-play'
+              include ../icons/_icon-play
+            when 'icon-discovery'
+              include ../icons/_icon-discovery
+            when 'icon-microphone'
+              include ../icons/_icon-microphone
+            when 'icon-user'
+              include ../icons/_icon-user
+            when 'icon-add-user'
+              include ../icons/_icon-add-user
+            when 'icon-subscription'
+              include ../icons/_icon-subscription
+            when 'icon-medal'
+              include ../icons/_icon-medal
+      span.menu-text= text
+
+mixin toggle()
+  label.toggle
+    input(type="checkbox", name="")
+    .toggle-main
+      .toggle-spinner
+
+mixin button(icon = false, title = "Play Episode")
+  button.button.button--primary
+    if icon
+      include ../icons/_icon-play
+    span= title
+
+mixin feedItem
+  .feed-item
+    .feed-item-header
+      .feed-author
+        .feed-author-avatar
+          img(src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1452&q=80", alt="")
+          span.feed-author-verify
+            include ../icons/_icon-verify
+        .feed-author-content
+          .feed-author-header
+            h4.feed-author-name James Killened
+            .feed-author-rating
+              span rated an episude
+              img(srcset="./images/img-rating.png 2x", alt="")
+          .feed-date Jun 25th
+      span
+        include ../icons/_icon-more
+    .feed-item-main
+      .feed-image
+        img(src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80", alt="")
+      .feed-item-content
+        p.feed-item-podcast Perspective Podcast (Ep. 1)
+        h3.feed-item-heading Philosophy vs Religion vs Science: Yahia Amin and Sadman Sadik
+        p.feed-item-desc Play Philosophy vs Religion vs Science: Perspective Podcast (Ep. 1) | Yahia Amin and Sadman Sadik by PERSPECTIVE with Yahia Amin on desktop and mobile. Play over 265 million tracks for...
+    .feed-item-footer
+      .feed-actions
+        button
+          include ../icons/_icon-heart
+        button
+          include ../icons/_icon-star
+        button
+          include ../icons/_icon-playlist
+      +button(true)
+
+mixin widgetHeader( title = "", url = "#" )
+  .widget-header
+    h3.widget-heading= title
+    a.widget-view-all(href= url) View all
+
+mixin followItem
+  .follow
+    .follow-user
+      .follow-user-avatar
+        img(src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80", alt="")
+      .follow-user-info
+        h4.follow-user-name Yahia Amin
+        p.follow-user-username @yahiamdamin
+    .follow-action
+      +button(false, "Follow")
+
+mixin listenItem
+  .listen
+    .listen-image
+      img(src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1452&q=80", alt="")
+    .listen-info
+      h4.listen-title Don't Always Win | LifeSpring
+      .listen-meta
+        .listen-meta-item
+          include ../icons/_icon-play2
+          span 156
+        .listen-meta-item
+          include ../icons/_icon-play2
+          span 156
+
+mixin topicItem
+  .topic
+    img.topic-image(src="https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")
+    .topic-content
+      h4.topic-title 👫 Society &amp; Culture
+      .topic-podcast 761k podcast
+mixin playlistItem
+  .playlist-item
+    .playlist-image
+      img(src="https://images.unsplash.com/photo-1490598000245-075175152d25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3270&q=80")
+    .playlist-content
+      .playlist-top
+        h3.playlist-title Business Development Business Development
+        span.playlist-date Created on 1 day ago
+      .playlist-desc UIHUT is a design and coding resources platform for designers, developers, and entrepreneurs.
+      .playlist-bottom
+        .playlist-episodes
+          each val in [1,2,3,4]
+            img.playlist-episode-image.playlist-episode-item(src="https://images.unsplash.com/Ys-DBJeX0nE.JPG?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3270&q=80")
+          .playlist-episode-number.playlist-episode-item 41+
+        .playlist-likes
+          include ../icons/_icon-heart-fill
+          span.playlist-likes-count 1.5k
